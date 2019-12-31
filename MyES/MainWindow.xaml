@@ -1,0 +1,45 @@
+﻿<Window x:Class="MyES.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyES"
+        mc:Ignorable="d"
+        Title="MyES" Height="566.944" Width="1060.611" ResizeMode="CanMinimize">
+    <Grid>
+        <Menu x:Name="Menu_MainMenu" Height="25" VerticalAlignment="Top">
+            <MenuItem Header="_Файл">
+                <MenuItem Header="_Открыть" Click="OpenFile" />
+                <Separator />
+                <MenuItem Header="_Выход" />
+            </MenuItem>
+            <MenuItem Header="_Консультация">
+                <MenuItem x:Name="Menu_MainMenu_Start" Header="_Начать" Click="Start" IsEnabled="False"/>
+                <MenuItem x:Name="Menu_MainMenu_Cancel" Header="_Сбросить" IsEnabled="False" Click="Cansel"/>
+            </MenuItem>
+        </Menu>
+        <TextBlock x:Name="TB_Info" HorizontalAlignment="Left" Margin="10,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="60" Width="1021"/>
+        <DataGrid x:Name="DG_Questions" HorizontalAlignment="Left" Height="331" Margin="274,95,0,0" VerticalAlignment="Top" Width="757" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Answer}" Header="Ответ" Width="50" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Text}" Header="Вопрос" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <GroupBox Header="Текущий вопрос" HorizontalAlignment="Left" Height="83" Margin="10,431,0,0" VerticalAlignment="Top" Width="1021">
+            <Grid HorizontalAlignment="Left" Height="73" Margin="0,0,-2,-13" VerticalAlignment="Top" Width="1011">
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="49" Margin="10,10,0,0" VerticalAlignment="Top" Width="584">
+                    <TextBlock x:Name="TB_CurrentQuestion" TextWrapping="Wrap" Margin="-1,0,0,0"/>
+                </Border>
+                <TextBlock HorizontalAlignment="Center" Margin="599,10,0,0" TextWrapping="Wrap" Text="Введите коэффициент уверенности по шкале: -5(нет)...0(не знаю)...5(да)" VerticalAlignment="Top" Height="20" Width="402"/>
+                <TextBox x:Name="TBX_Answer" HorizontalAlignment="Left" Height="23" Margin="700,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsUndoEnabled="False"/>
+                <Button x:Name="BTN_Enter" Content="Ввод" HorizontalAlignment="Left" Margin="825,30,0,0" VerticalAlignment="Top" Width="75" Height="23" IsDefault="True" IsEnabled="False" Click="BTN_Enter_Click"/>
+            </Grid>
+        </GroupBox>
+        <DataGrid x:Name="DG_Result" HorizontalAlignment="Left" Height="331" Margin="10,95,0,0" VerticalAlignment="Top" Width="259" IsReadOnly="True" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Probability}" Header="Вероятность" Width="80" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Text}" Header="Гипотеза" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
