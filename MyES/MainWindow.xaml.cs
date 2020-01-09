@@ -150,10 +150,10 @@ namespace MyES
             {
                 foreach (var hypothesis in mkbFile.Hypotheses)
                 {
-                    if (hypothesis.PropertiesProbabilities.ContainsKey(numberQuestion + 1))
+                    if (hypothesis.PropertiesProbabilities.ContainsKey(numberQuestion))
                     {
-                        double pPlus = hypothesis.PropertiesProbabilities[numberQuestion + 1].Yes;
-                        double pMinus = hypothesis.PropertiesProbabilities[numberQuestion + 1].No;
+                        double pPlus = hypothesis.PropertiesProbabilities[numberQuestion].Yes;
+                        double pMinus = hypothesis.PropertiesProbabilities[numberQuestion].No;
                         double pH = hypothesis.Probability;
 
                         double pHnotE = (1 - pPlus) * pH / ((1 - pPlus) * pH + (1 - pMinus) * (1 - pH));
@@ -166,10 +166,10 @@ namespace MyES
             {
                 foreach (var hypothesis in mkbFile.Hypotheses)
                 {
-                    if (hypothesis.PropertiesProbabilities.ContainsKey(numberQuestion + 1))
+                    if (hypothesis.PropertiesProbabilities.ContainsKey(numberQuestion))
                     {
-                        double pPlus = hypothesis.PropertiesProbabilities[numberQuestion + 1].Yes;
-                        double pMinus = hypothesis.PropertiesProbabilities[numberQuestion + 1].No;
+                        double pPlus = hypothesis.PropertiesProbabilities[numberQuestion].Yes;
+                        double pMinus = hypothesis.PropertiesProbabilities[numberQuestion].No;
                         double pH = hypothesis.Probability;
 
                         double pHE = (pPlus * pH) / (pPlus * pH + pMinus * (1 - pH));

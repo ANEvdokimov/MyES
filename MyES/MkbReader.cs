@@ -48,7 +48,7 @@ namespace MyES
                 for (int i = 2; i < strings.Length; i++)
                 {
                     probabilities.Add(
-                        int.Parse(strings[i]),
+                        int.Parse(strings[i]) - 1,
                         new Probability(
                             double.Parse(strings[++i], CultureInfo.CreateSpecificCulture("en-US")),
                             double.Parse(strings[++i], CultureInfo.CreateSpecificCulture("en-US")))
